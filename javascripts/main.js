@@ -14,13 +14,10 @@ requirejs.config({
   }
 });
 
-requirejs(["dependencies", "new-game", "populate-dom", "draw-card"], function(dependencies, newGame, popdom, draw){
+requirejs(["dependencies", "new-game", "populate-dom", "draw-card", "check-win"], function(dependencies, newGame, popdom, draw, check){
   $(document).on("click", "#newGame", function(){
-
-    var p1_id,
-        p2_id;
-    newGame.newDeck(p1_id, popdom.player1);
-    newGame.newDeck(p2_id, popdom.player2);
+    newGame.newDeck(popdom.player1);
+    newGame.newDeck(popdom.player2);
     popdom.pile();
   });
 
